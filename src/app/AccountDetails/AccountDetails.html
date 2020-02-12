@@ -1,0 +1,277 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-button color="primary" fill="clear" backButton="">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios" color="primary">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Account Details
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-card class="white-background profile-card">
+                    <ion-card-content class="ion-no-padding">
+                        <ion-item class="ion-no-padding" lines="none">
+                            <div class="user-photo">
+                                <ion-img alt="Image error" class="avatar" [src]="dataService.getFileUrlById(dataService.user.avatar)">
+                                </ion-img>
+                                <ion-fab-button class="photo-btn">
+                                    <ion-icon name="camera">
+                                    </ion-icon>
+                                </ion-fab-button>
+                            </div>
+                            <ion-label class="ion-padding-start">
+                                <h3>
+                                    {{user.firstName}} {{user.lastName}}
+                                </h3>
+                                <a color="primary">
+                                {{user.org.name}}
+                                </a>
+                            </ion-label>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="gray-background" lines="none">
+                    <ion-label>
+                        <h3>
+                            Personal Information
+                        </h3>
+                    </ion-label>
+                    <ion-text color="primary" (click)="Apperyio.navigateTo(&quot;home/Profile/profile/edit&quot;)">
+                        Edit
+                    </ion-text>
+                </ion-item>
+                <ion-card mode="ios" class="white-background ion-no-margin ion-margin-bottom ion-margin-horizontal">
+                    <ion-card-content>
+                        <ion-list class="personal-info-list">
+                            <ion-item>
+                                <ion-text slot="start" class="ion-text-right ion-text-nowrap">
+                                    <ion-note>
+                                        First Name
+                                    </ion-note>
+                                </ion-text>
+                                <ion-label>
+                                    {{user.firstName}}
+                                </ion-label>
+                            </ion-item>
+                            <ion-item>
+                                <ion-text slot="start" class="ion-text-right ion-text-nowrap">
+                                    <ion-note>
+                                        Last Name
+                                    </ion-note>
+                                </ion-text>
+                                <ion-label>
+                                    {{user.lastName}}
+                                </ion-label>
+                            </ion-item>
+                            <ion-item>
+                                <ion-text slot="start" class="ion-text-right ion-text-nowrap">
+                                    <ion-note>
+                                        Member#
+                                    </ion-note>
+                                </ion-text>
+                                <ion-label>
+                                    0003H
+                                </ion-label>
+                            </ion-item>
+                            <ion-item>
+                                <ion-text slot="start" class="ion-text-right ion-text-nowrap">
+                                    <ion-note>
+                                        Address
+                                    </ion-note>
+                                </ion-text>
+                                <ion-label color="ionic-color">
+                                    Washington Avenu, 69-420
+                                </ion-label>
+                            </ion-item>
+                            <ion-item>
+                                <ion-text slot="start" class="ion-text-right ion-text-nowrap">
+                                    <ion-note>
+                                        City
+                                    </ion-note>
+                                </ion-text>
+                                <ion-label color="ionic-color">
+                                    Las-Vegas
+                                </ion-label>
+                            </ion-item>
+                            <ion-item>
+                                <ion-text slot="start" class="ion-text-right ion-text-nowrap">
+                                    <ion-note>
+                                        State
+                                    </ion-note>
+                                </ion-text>
+                                <ion-label color="ionic-color">
+                                    Nevada
+                                </ion-label>
+                            </ion-item>
+                            <ion-item>
+                                <ion-text slot="start" class="ion-text-right ion-text-nowrap">
+                                    <ion-note>
+                                        ZIP
+                                    </ion-note>
+                                </ion-text>
+                                <ion-label color="ionic-color">
+                                    88901
+                                </ion-label>
+                            </ion-item>
+                            <ion-item>
+                                <ion-text slot="start" class="ion-text-right ion-text-nowrap">
+                                    <ion-note>
+                                        Phone
+                                    </ion-note>
+                                </ion-text>
+                                <ion-label color="ionic-color">
+                                    (212) 348-2626
+                                </ion-label>
+                            </ion-item>
+                        </ion-list>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="gray-background" lines="none">
+                    <ion-label>
+                        <h3>
+                            My subscriptions
+                        </h3>
+                    </ion-label>
+                    <ion-text color="primary" (click)="Apperyio.navigateTo(&quot;home/Profile/subscriptions&quot;)">
+                        Add subscription
+                    </ion-text>
+                </ion-item>
+                <ion-card color="ionic-color" mode="ios" class="white-background  subscriptions-card ion-no-margin ion-margin-bottom ion-margin-horizontal">
+                    <ion-card-content>
+                        <ion-card-title>
+                            <h3>
+                                5 Class Pack
+                                <br>
+                                Fitness World
+                            </h3>
+                        </ion-card-title>
+                        <ion-item class="ion-justify-content-between ion-no-padding ion-no-margin" lines="none">
+                            <ion-label color="dark">
+                                You have 3 classes to attend
+                            </ion-label>
+                            <ion-chip (click)="showMembers = true" [hidden]="showMembers" color="primary">
+                                <ion-text color="primary" class="h7">
+                                    SHOW MORE
+                                </ion-text>
+                            </ion-chip>
+                        </ion-item>
+                        <ion-grid transition="slide" [hidden]="!showMembers">
+                            <ion-row>
+                                <ion-col class="members ion-no-padding">
+                                    <h4>
+                                        Members
+                                    </h4>
+                                    <ion-list lines="none" class="ion-no-padding">
+                                        <ion-item class="ion-no-padding">
+                                            <ion-avatar>
+                                                <ion-img alt="Image error" [src]="this.dataService.getFileUrlById(user.avatar)">
+                                                </ion-img>
+                                            </ion-avatar>
+                                            <ion-label class="ion-margin-start">
+                                                {{this.dataService.getFullUserName()}} (you)
+                                            </ion-label>
+                                        </ion-item>
+                                        <ion-item class="ion-no-padding" *ngFor="let user of familyUsers; let ind = index">
+                                            <ion-avatar [ngClass]="{'green-border': !ind, 'red-border': ind}">
+                                                <ion-img alt="Image error" [src]="dataService.getFileUrlById(user.avatar)">
+                                                </ion-img>
+                                            </ion-avatar>
+                                            <ion-label class="ion-margin-start">
+                                                {{user.first_name}} {{user.last_name}}
+                                            </ion-label>
+                                        </ion-item>
+                                    </ion-list>
+                                </ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col class="ion-text-right">
+                                    <ion-chip (click)="showMembers = false" color="primary">
+                                        <ion-text color="primary" class="h7">
+                                            SHOW LESS
+                                        </ion-text>
+                                    </ion-chip>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="gray-background" lines="none">
+                    <ion-label>
+                        <h3>
+                            Wallet
+                        </h3>
+                    </ion-label>
+                    <ion-text color="primary">
+                        Add payment method
+                    </ion-text>
+                </ion-item>
+                <ion-card mode="ios" class="white-background ion-no-margin ion-margin-bottom ion-margin-horizontal">
+                    <ion-card-content>
+                        <ion-list>
+                            <ion-item lines="none" class="ion-align-items-start" *ngFor="let card of cards">
+                                <div slot="start" class="card-logo gray-background ion-padding">
+                                    <ion-img alt="Image error" src="assets/images/MC.png">
+                                    </ion-img>
+                                </div>
+                                <ion-label>
+                                    <h4>
+                                        <ion-text color="primary">
+                                            {{card.cardProvider}} • {{card.lastFourDigits}}
+                                        </ion-text>
+                                    </h4>
+                                    <ion-note>
+                                        {{card.expirationDate.month}}/{{card.expirationDate.year}}
+                                    </ion-note>
+                                    <div [hidden]="selectedCard !== card">
+                                        <ion-img alt="Image error" src="assets/images/card.png">
+                                        </ion-img>
+                                    </div>
+                                </ion-label>
+                                <ion-radio name="card" value="{{card.lastFourDigits}}" slot="end" [checked]="selectedCard === card"
+                                (ionSelect)="selectedCard = card">
+                                </ion-radio>
+                            </ion-item>
+                        </ion-list>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="gray-background" lines="none">
+                    <ion-text color="primary">
+                        Change password
+                    </ion-text>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="gray-background" (click)="this.Apperyio.navigateTo('Login')" lines="none">
+                    <ion-text color="danger">
+                        Logout
+                    </ion-text>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

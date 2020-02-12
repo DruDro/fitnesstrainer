@@ -1,0 +1,53 @@
+// ion-card {
+//     .workout-top-row {
+//         padding-bottom: 18px;
+//         border-bottom: 1px solid var(--ion-color-light);
+//     }
+//     .schedule-container-grid {
+//         --ion-grid-column-padding: 0px;
+//     }
+//     ion-col ion-item ion-label {
+//         margin-left: 12px;
+//     }
+//     .ion-chip-message {
+//         padding: 7px 20px;
+//     }
+//     .ion-chip-activity {
+//         padding: var(--half-padding);
+//         border-radius: 6px;
+//     }
+// }
+//TODO test-workout-card is prototype for WorkoutCard. Please, do not remove it
+.test-workout-card {
+   display: none;
+}
+
+workout-card {
+    display: block;
+}
+
+///////
+
+.change-date {
+    margin-bottom: 10px;
+}
+
+.calendar {
+    
+    ion-text.weekDay {
+        font-size: 18px;
+        font-weight: 600;
+    }
+    
+    .date {
+        height: 33px;
+        width: 33px;
+        border-radius: 50%;
+        margin-top: 10px;
+        padding: 7px;
+        
+        &.selected {
+            background-color: var(--ion-color-primary);
+        }
+    }
+}

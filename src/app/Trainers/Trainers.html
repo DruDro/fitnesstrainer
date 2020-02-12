@@ -1,0 +1,40 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-button color="primary" fill="clear" [routerLink]="['/home']">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios" color="primary">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="dark">
+            List of trainers
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-searchbar>
+                </ion-searchbar>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <h3 class="ion-padding-start">
+                    Trainers
+                </h3>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-list class="gray-background">
+                    <user-list-item (click)="this.openDetails(coach)" *ngFor="let coach of coaches; let i = index"
+                    [favourite]="i === 0 || i === 2" avatarKey="avatar" noteKey="position" nameKey="name"
+                    [user]="coach">
+                    </user-list-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,202 @@
+ion-card-content {
+    padding: var(--single-padding);
+    
+    ion-avatar {
+        height: 70px;
+        width: 70px;
+    }
+    
+    .profile-info {
+        padding-left: 10px;
+    }
+}
+
+.schedule-tab {
+    margin-left: var(--single-padding);
+}
+
+.statistics-tab {
+    margin-right: var(--single-padding);
+}
+
+.tab {
+    height: 40px;
+    text-align: center;
+    padding: 10px 0;
+    
+    ion-icon {
+        margin-right: var(--half-padding);
+    }
+    
+    ion-text {
+        font-size: 14px;
+        font-weight: normal;
+        color: #a9b5bf;
+    }
+    
+    &.selected {
+        border-bottom: 2px solid var(--ion-color-primary);
+        
+        ion-text {
+            font-weight: bold;
+            color: var(--ion-color-dark);
+        }
+    }
+}
+
+ion-card {
+    margin: 6px 16px;
+}
+
+.chart-title {
+    display: flex;
+    
+    ion-icon {
+        border-radius: 50%;
+        padding: 1px;
+        margin-right: var(--half-padding);
+        
+        &.thunder {
+            background-color: #9955DE;
+        }
+        
+        &.steps {
+            background-color: #557DDE;
+        }
+        
+        &.cals {
+            background-color: #F2C94C;
+        }
+        
+        &.heart {
+            background-color: #FA3C67;
+        }
+        
+        &.activities {
+            background-color: #30D2B4;
+        }
+    }
+    
+    ion-card-title {
+        margin: 0;
+    }
+}
+
+.lbs-amount {
+    color: #9A55DE;
+}
+
+.steps-per-day {
+   // display: none;
+   .steps-amount {
+        color: #557DDE;
+    }
+}
+
+.heart-rate-wrapper {
+    display: flex;
+    
+    .amount {
+        font-size: 80px;
+        line-height: 80px;
+    }
+    
+    .details {
+        display: flex;
+        flex-direction: column;
+        
+        .bpm {
+            font-size: 30px;
+            line-height: 40px;
+        }
+        
+        ion-icon {
+            font-size: 30px;
+            -webkit-animation: heart-rate 1s infinite;
+        }
+    }
+}
+
+.measuring {
+    width: 200px;
+}
+
+@keyframes heart-rate {
+  from {-webkit-transform: scale(0.8)}
+  to {-webkit-transform: scale(1)}
+}
+
+.schedule-list {
+    background: var(--content-background-gray);
+    margin-bottom: 0px;
+    
+    workout-card,
+    user-workout-card {
+        width: 100%;
+    }
+    
+    ion-item-sliding {
+        padding: var(--half-padding) var(--single-padding);
+    }
+}
+
+.today-classes-filter {
+    margin-right: var(--single-padding);
+    padding: 9px 5px;
+    
+    .today-classes {
+        background-color: var(--ion-color-light);
+        border-radius: 24px;
+        width: 140px;
+        height: 32px;
+        text-align: center;
+        padding: 4px 0;
+        cursor: pointer;
+        float: right;
+        
+        ion-text {
+            text-transform: uppercase;
+        }
+        
+        &.selected {
+            background-color: var(--ion-color-primary);
+        }
+    }
+}
+
+.user-filter {
+    display: flex;
+    margin-left: var(--single-padding);
+    
+    ion-avatar {
+        height: 40px;
+        width: 40px;
+        margin-left: 16px;
+        padding: 2px;
+        border: 2px solid #557DDE;
+        
+        
+        &.not-selected {
+            opacity: 0.3;
+        }
+        
+        &.green-border {
+            border-color: #30D2B4;
+        }
+        
+        &.red-border {
+            border-color: #FA3C67;
+        }
+    }
+}
+
+.ion-chip-measure {
+    padding: var(--half-padding);
+    border-radius: 6px;
+}
+
+.start-workout {
+    width: 100%;
+    text-align: right;
+}
+

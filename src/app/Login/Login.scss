@@ -1,0 +1,25 @@
+.login-container {
+    height: 100%;
+    .login-container-grid {
+        --ion-grid-column-padding: 0px;
+        --ion-padding: var(--double-padding);
+        height: 100%;
+        
+        .login-container-button {
+            --border-radius: 50px;
+            width: 100%;
+        }
+       
+        ion-input {
+            border-bottom: 1px solid var(--ion-color-medium);
+        }
+       
+    }
+    .runner-icon {
+        padding-top: 40px;
+        width: var(--large-icon-size);
+        height: var(--large-icon-size);
+    }
+}
+
+

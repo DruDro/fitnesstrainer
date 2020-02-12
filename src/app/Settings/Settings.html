@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-menu-button autoHide="true" color="primary">
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title color="dark">
+            Settings
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <h3 class="ion-no-margin">
+                    About
+                    <br>
+                </h3>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-text class="ion-no-margin">
+                    Version: {{this.version}}
+                    <br>
+                </ion-text>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-button (click)="Apperyio.navigateTo('home/Schedule/planbrowseactivities')">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Build my plan
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background">
+    <ion-grid class="ion-padding">
+        <ion-row>
+            <ion-col size="4">
+                <ion-avatar class="workout-plan-avatar">
+                    <ion-img alt="Image error" src="assets/images/activity.png">
+                    </ion-img>
+                </ion-avatar>
+            </ion-col>
+            <ion-col>
+                <ion-input (ionInput)="planService.setName($event.target.value)" placeholder="Enter text"
+                type="text" class="workout-name-input">
+                </ion-input>
+                <ion-text color="medium">
+                    Name the workout and upload a photo if you want
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-text class="h3">
+                    Activities
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let activity of activities">
+            <ion-col>
+                <ion-card class="ion-padding ion-no-margin white-background">
+                    <plan-activity [workout]="activity">
+                    </plan-activity>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-button expand="full" shape="round" class="apply-btn" (click)="saveWorkout()"
+    [disabled]="isDisabledAddButton()">
+        Add Workout Plan
+    </ion-button>
+</ion-content>

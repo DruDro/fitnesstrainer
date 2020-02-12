@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>
+            fitnessTrainerApp
+        </title>
+        <base href="" />
+        <link rel="icon" href="favicon.svg?v=15311035">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+        <link rel="manifest" href="manifest.json" crossOrigin="use-credentials">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="apple-touch-icon" sizes="192x192" href="../img/fintess-192.png">
+        <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('sw.js')
+                    .then(() => console.log('service worker installed'))
+                    .catch(err => console.error('Error', err));
+            }
+        </script>
+    </head>
+    
+    <body>
+        <!-- External js libraries -->
+        <script src="assets/js/cordova.js">
+        </script>
+        <app-root>
+        </app-root>
+        <noscript>
+            JavaScript is disabled. Please enable JavaScript to use this site.
+        </noscript>
+    </body>
+
+</html>

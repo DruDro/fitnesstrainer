@@ -1,0 +1,91 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-button color="primary" fill="clear" backButton="">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios" color="primary">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="dark">
+            Summer camp
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-slides class="ad-slides" pager="true" [options]="this.adsSlideOpts">
+                    <ion-slide *ngFor="let pic of campTerm?.camp.pictures">
+                        <ion-img alt="Image error" class="camp__slide" [src]="dataService.getFileUrlByName(pic)">
+                        </ion-img>
+                    </ion-slide>
+                </ion-slides>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="ion-no-padding gray-background" lines="none">
+                    <ion-label>
+                        <ion-text class="h3">
+                            {{campTerm?.camp.name}}
+                        </ion-text>
+                    </ion-label>
+                    <ion-text color="medium">
+                        {{campTerm?.startDate.$date | date:'dd.MM'}} - {{campTerm?.endDate.$date | date:'dd.MM'}}
+                    </ion-text>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-text>
+                    {{campTerm?.camp.description}}
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="ion-no-padding gray-background" lines="none">
+                    <ion-label>
+                        <ion-text class="h4">
+                            Select children
+                        </ion-text>
+                    </ion-label>
+                    <ion-text color="medium">
+                        {{campTerm?.placesNumber - bookedUsers.length}} places left
+                    </ion-text>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-list class="ion-no-padding gray-background contact-list">
+                    <ion-item button="true" detail="false" class="ion-no-padding gray-background" *ngFor="let contact of contacts">
+                        <ion-avatar slot="start">
+                            <ion-img alt="Image error" [src]="dataService.getFileUrlById(contact.avatar)">
+                            </ion-img>
+                        </ion-avatar>
+                        <ion-label>
+                            <h4>
+                                <ion-text>
+                                    {{contact.firstName}} {{contact.lastName}}
+                                </ion-text>
+                            </h4>
+                            <ion-note>
+                                <ion-text>
+                                    (212) 348-2626
+                                </ion-text>
+                            </ion-note>
+                        </ion-label>
+                        <ion-checkbox [(ngModel)]="contact.isChecked" (ionChange)="updateBookedUsers()">
+                        </ion-checkbox>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-button expand="full" shape="round" class="apply-btn" (click)="confirm()">
+        Confirm
+    </ion-button>
+</ion-content>

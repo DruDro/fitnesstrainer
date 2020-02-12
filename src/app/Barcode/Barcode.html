@@ -1,0 +1,53 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-button color="light" backButton="" icon="close">
+                <ion-icon name="close" slot="icon-only">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Check In
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="true">
+    <ion-grid>
+        <ion-row class="ion-align-items-end ion-justify-content-center ion-nowrap">
+            <ion-col class="avatar-cell ion-text-center ion-padding-top">
+                <ion-avatar>
+                    <ion-img alt="Image error" [src]="dataService.getFileUrlById(dataService.user.avatar)">
+                    </ion-img>
+                </ion-avatar>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="ion-text-center ion-no-padding">
+                <h3>
+                    {{this.dataService.getFullUserName()}}
+                </h3>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="ion-text-center ion-no-padding">
+                <ion-text>
+                    Member since {{this.dataService.user.regDate | date }}
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="ion-no-padding ion-no-padding">
+                <ion-img alt="Image error" [src]="dataService.getFileUrlById('42be2f07-e79b-44d7-8dbe-921c6577b500.barcode')">
+                </ion-img>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="ion-no-padding ion-no-padding" [hidden]="this.dataService.isAndroid">
+                <ion-button color="light" expand="full" fill="solid" shape="round" class="add-to-wallet"
+                (click)="addToWallet()">
+                    ADD TO WALLET
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

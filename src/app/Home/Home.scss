@@ -1,0 +1,27 @@
+ .home-container {
+     height: 100%;
+     
+     .home-container-grid {
+         height: 100%;
+         display: flex;
+         flex-flow: column nowrap;
+         justify-content:space-between;
+         ion-row{
+             flex: 1 0 auto;
+         }
+     }
+     
+     workout-card {
+         margin: 5px;
+         width: 100%;
+     }
+     
+     .ad-slides.swiper-container {
+        padding: 0 0 20px;
+     }
+     
+     .workout-slides.swiper-container {
+        padding: 0 0 35px;
+     }
+ }
+ 

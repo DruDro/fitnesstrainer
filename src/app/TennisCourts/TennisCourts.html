@@ -1,0 +1,87 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-button [routerLink]="['/home']">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="dark">
+            Fitness world
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-item class="gray-background ion-no-padding ion-activatable" lines="none" (click)="html16Click__j_343($event, currentItem)">
+                    <ion-text class="h3 ">
+                        Tennis courts
+                    </ion-text>
+                    <ion-icon name="arrow-down" color="primary">
+                    </ion-icon>
+                    <ion-ripple-effect>
+                    </ion-ripple-effect>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="gray-background" lines="none">
+                    <ion-label class="ion-text-end" [ngClass]="{'selected': type === 'indoor'}" (click)="typeToggle = false"
+                    text-align="right">
+                        <ion-text>
+                            Indoor
+                        </ion-text>
+                    </ion-label>
+                    <ion-toggle class="ion-margin-horizontal ion-padding" id="typeToggle" [(ngModel)]="typeToggle"
+                    (ionChange)="filterCourts()">
+                    </ion-toggle>
+                    <ion-label [ngClass]="{'selected': type === 'outdoor'}" (click)="typeToggle = true">
+                        <ion-text>
+                            Outdoor
+                        </ion-text>
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <date-switcher (selectDate)="setDate($event)">
+                </date-switcher>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngIf="court">
+            <ion-col>
+                <ion-card class="white-background ion-no-margin">
+                    <ion-card-content>
+                        <ion-grid>
+                            <ion-row class="ion-align-items-center ion-justify-content-center">
+                                <ion-col size="auto" class="ion-no-padding">
+                                    <ion-button color="primary" fill="clear" (click)="setCourt(courtIndex-1)" [disabled]="courtIndex == 0">
+                                        <ion-icon name="arrow-back" slot="icon-only" mode="ios">
+                                        </ion-icon>
+                                    </ion-button>
+                                </ion-col>
+                                <ion-col size="auto" class="ion-no-padding">
+                                    <ion-text class="h3">
+                                        {{court.name}}
+                                    </ion-text>
+                                </ion-col>
+                                <ion-col size="auto" class="ion-no-padding">
+                                    <ion-button color="primary" fill="clear" (click)="setCourt(courtIndex+1)" [disabled]="courtIndex == courts.length -1">
+                                        <ion-icon name="arrow-forward" slot="icon-only" mode="ios">
+                                        </ion-icon>
+                                    </ion-button>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                        <court-schedule (book)="bookSlot($event)" [slots]="court.slots" (unbook)="unbookSlot($event)">
+                        </court-schedule>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

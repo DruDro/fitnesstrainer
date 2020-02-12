@@ -1,0 +1,91 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button color="primary" fill="clear" backButton="">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios" color="primary">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" *ngIf="!(chat | async)?.picture">
+            <ion-button color="primary" fill="clear" (click)="openChatDetails()">
+                <ion-icon name="options" slot="icon-only">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            {{ (chat| async)?.name }}
+        </ion-title>
+        <ion-avatar slot="end" *ngIf="(chat | async)?.picture">
+            <ion-img [src]="(chat | async)?.picture" alt="Image error" (click)="openChatDetails()">
+            </ion-img>
+        </ion-avatar>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background">
+    <ion-grid class="chat-grid">
+        <ion-row class="messages" id="messages">
+            <ion-col class="ion-no-padding ion-no-margin">
+                <ion-grid class="messages-grid ion-padding-start" id="message-grid">
+                    <ion-row [ngClass]="{'out': m.uid === dataService.user._id}" *ngFor="let m of messages | async">
+                        <ion-col class="message-cell" [ngClass]="{'out': m.uid === dataService.user._id}">
+                            <ion-avatar class="message__author" *ngIf="m.uid !== dataService.user._id">
+                                <ion-img [src]="contactsService.getUserAvatar(m.uid)" alt="Image error">
+                                </ion-img>
+                            </ion-avatar>
+                            <div class="message-container" [ngClass]="{'out': m.uid === dataService.user._id}">
+                                <div class="message__header">
+                                    <ion-note class="message__author-name" *ngIf="m.uid !== dataService.user._id">
+                                        {{contactsService.getUserFullNameById(m.uid)}}
+                                    </ion-note>
+                                    <ion-note class="message__datetime">
+                                        {{m.createdAt | humanize}}
+                                    </ion-note>
+                                </div>
+                                <div [innerHTML]="m.text">
+                                </div>
+                                <ion-card class="white-background" [href]="link.url" target="&quot;_blank&quot;"
+                                *ngFor="let link of m.richLinks">
+                                    <img alt="Image error" [src]="link.image" *ngIf="link.image">
+                                    <ion-card-content *ngIf="link.description && link.title">
+                                        <ion-card-title>
+                                            {{link.title}}
+                                        </ion-card-title>
+                                        <p>
+                                            <ion-text>
+                                                {{link.description}}
+                                            </ion-text>
+                                            <a [href]="link.url">
+                                            <ion-text      color="primary" *ngIf="link.title"  >
+                                            Read more
+                                            </ion-text>
+                                            </a>
+                                        </p>
+                                    </ion-card-content>
+                                </ion-card>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+        <ion-row class="message-area-wrapper" id="messageArea">
+            <ion-col>
+                <ion-grid class="message-area ion-padding-start">
+                    <ion-row class="ion-justify-content-between ion-nowrap">
+                        <ion-col size="10">
+                            <ion-input [(ngModel)]="message" autofocus="false" clearInput="true" placeholder="Type something"
+                            class="message-text-input ">
+                            </ion-input>
+                        </ion-col>
+                        <ion-col class="ion-text-right">
+                            <ion-chip class="action-chip white-background" (click)="buttonClick()">
+                                <ion-icon name="logo-ionic" color="primary" class="ion-no-margin" src="assets/images/{{message ? 'send' : 'microphone'}}.svg">
+                                </ion-icon>
+                            </ion-chip>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

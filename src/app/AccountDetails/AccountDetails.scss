@@ -1,0 +1,79 @@
+ion-card-content {
+    padding: var(--single-padding);
+    background-color: var(--ion-color-primary-contrast);
+}
+
+.profile-card {
+    box-shadow: none;
+}
+
+
+.user-photo {
+    position: relative;
+    flex: 0 1 96px;
+    margin:var(--single-padding);
+    .avatar{
+        object-fit:cover;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+}
+
+.photo-btn {
+    --background: rgba(#557DDE, .64);
+    --background-hover: rgba(#557DDE, .64);
+    --background-focused: rgba(#557DDE, .64);
+    --background-activated: rgba(#557DDE, .64);
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.personal-info-list {
+    ion-item {
+        display: flex;
+    }
+    ion-text {
+        flex: 0 0 80px;
+        display: block;
+        margin-right: 20px;
+    }
+    ion-label {
+        font-weight: bold;
+    }
+}
+
+.subscriptions-card {
+    border: 2px solid var(--ion-color-primary);
+    border-width: 3px 3px 3px 8px;
+}
+
+.light-btn {
+    color: var(--ion-color-primary)!important;
+}
+
+.card-logo {
+    border-daius: 8px;
+    background: var(--content-background-gray);
+}
+
+.members {
+    ion-avatar {
+        height: 40px;
+        width: 40px;
+        padding: 2px;
+        border: 2px solid #557DDE;
+        
+        &.green-border {
+            border-color: #30D2B4;
+        }
+        
+        &.red-border {
+            border-color: #FA3C67;
+        }
+    }
+}

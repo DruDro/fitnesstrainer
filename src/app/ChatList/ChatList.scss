@@ -1,0 +1,80 @@
+.chat-avatar{
+    margin-right:16px;
+    width:64px;
+    height:64px;
+    overflow:hidden;
+    position:relative;
+    border-radius:50%;
+    background: var(--ion-color-primary);
+    display:flex;
+    flex-flow:row wrap;
+    &__member{
+        flex: 0 0 50%;
+        height:50%;
+        object-fit:cover
+    }
+    &.members{
+        &-2{
+            .chat-avatar__member{
+                height:100%;
+            }
+        }
+        &-3{
+            .chat-avatar__member:nth-of-type(3){
+                flex: 0 0 100%;
+            }
+        }
+        &-5{
+            .chat-avatar__member:nth-of-type(n+4){
+                display:none;
+            }
+        }
+    }
+    .chat__members-counter {
+        color:white;
+        padding:0 0 0 5px;
+        margin:0;
+        
+    }
+    .chat__avatar{
+        border-radius:50%;
+        object-fit:cover;
+    }
+    &.has-avatar{
+        .chat-avatar__member, .chat__members-counter {
+            display:none;
+        }
+    }
+}
+
+.last-message {
+    position:relative;
+    display:flex;
+    align-items:center;
+}
+.message__author{
+    display: block;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    margin: 0 5px 0 0;
+}
+
+.chat-list-row{
+    padding: 8px 13px;
+}
+.unread-indicator{
+    position:absolute;
+    width: 6px;
+    height: 6px;
+    right:5px;
+    top:50%;
+    transform:translateY(-50%);
+    border-radius: 50%;
+    background: var(--ion-color-primary);
+}
+
+:host ::ng-deep .replacedLink {
+    pointer-events:none;
+    color: var(--ion-color-dark);
+}

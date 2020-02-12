@@ -1,0 +1,106 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-button color="primary" fill="clear" backButton="">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios" color="primary">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Group chats
+        </ion-title>
+        <ion-button slot="end" (click)="Apperyio.navigateTo(&quot;home/ChatList/newmessage&quot;)"
+        fill="clear" color="dark">
+            <ion-icon name="none" color="dark" icon-only="true" src="assets/images/data.svg">
+            </ion-icon>
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background" *ngIf="contactsService.contacts">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-searchbar>
+                </ion-searchbar>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <h3 class="ion-padding-start">
+                    My Chats
+                </h3>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-no-margin chat-list-row" *ngFor="let chat of chatService.chats | async">
+            <ion-col class="ion-no-padding">
+                <ion-card class="white-background ion-no-margin ion-no-padding">
+                    <ion-card-content class="ion-no-margin">
+                        <div lines="none">
+                            <ion-item-sliding #slidingItem>
+                                <ion-item class="ion-no-padding" lines="none" (click)="openChat(chat.id)">
+                                    <div class="chat-avatar" [ngClass]="{'has-avatar': chat.picture, 'members-2': chat.users.length === 2,'members-3': chat.users.length === 3,'members-4': chat.users.length === 4,'members-5': chat.users.length > 4}">
+                                        <ion-img alt="Image error" class="chat-avatar__member" [src]="contactsService.getUserAvatar(user)"
+                                        *ngFor="let user of chat.users">
+                                        </ion-img>
+                                        <ion-img alt="Image error" class="chat__avatar" [src]="chat.picture" *ngIf="chat.picture">
+                                        </ion-img>
+                                        <h4 class="chat__members-counter" *ngIf="chat.users.length > 4">
+                                            +{{chat.users.length - 3}}
+                                        </h4>
+                                    </div>
+                                    <ion-label class="ion-no-margin">
+                                        <ion-grid class="ion-no-padding">
+                                            <ion-row class="ion-align-items-center ion-justify-content-between ion-nowrap">
+                                                <ion-col>
+                                                    <h4>
+                                                        <ion-text>
+                                                            {{chat.name }}
+                                                        </ion-text>
+                                                    </h4>
+                                                </ion-col>
+                                                <ion-col class="ion-text-right">
+                                                    <ion-note>
+                                                        {{chat.lastMessage.createdAt | humanize}}
+                                                    </ion-note>
+                                                </ion-col>
+                                            </ion-row>
+                                        </ion-grid>
+                                        <ion-grid class="ion-no-padding">
+                                            <ion-row class="ion-align-items-center ion-justify-content-start ion-nowrap">
+                                                <ion-col class="ion-no-padding last-message ion-padding-end">
+                                                    <div class="ion-padding-end last-message">
+                                                        <ion-avatar class="message__author">
+                                                            <ion-img [src]="contactsService.getUserAvatar(chat.lastMessage.uid)" alt="Image error">
+                                                            </ion-img>
+                                                        </ion-avatar>
+                                                        <div>
+                                                            <ion-note color="dark">
+                                                                {{contactsService.getUserFullNameById(chat.lastMessage.uid)}}
+                                                            </ion-note>
+                                                            <div [innerHTML]="chat.lastMessage.text">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="unread-indicator" [hidden]="(chat.lastVisited[this.dataService.user._id] > chat.updatedAt || chat.lastMessage.uid === this.dataService.user._id)">
+                                                    </div>
+                                                </ion-col>
+                                            </ion-row>
+                                        </ion-grid>
+                                    </ion-label>
+                                </ion-item>
+                                <ion-item-options side="end">
+                                    <ion-item-option color="primary" (click)="openChatDetails(chat.id)">
+                                        Settings
+                                    </ion-item-option>
+                                    <ion-item-option color="danger" (click)="leaveChat(chat)">
+                                        Leave
+                                    </ion-item-option>
+                                </ion-item-options>
+                            </ion-item-sliding>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

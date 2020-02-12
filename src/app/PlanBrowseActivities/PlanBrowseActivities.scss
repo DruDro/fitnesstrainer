@@ -1,0 +1,19 @@
+.activity-chip {
+    height: 24px;
+    width: 24px;
+    border-radius: 3px;
+    padding: 0 6px;
+    background-color: var(--ion-color-light);
+    
+    ion-icon {
+        font-size: 12px;
+    }
+}
+
+.add-button  {
+    position: sticky;
+    width: calc(100% - 64px);
+    left: 32px;
+    bottom: 16px;
+    z-index:9999;
+}

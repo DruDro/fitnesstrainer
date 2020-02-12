@@ -1,0 +1,78 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-menu-button autoHide="true" color="primary">
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title color="dark">
+            Exadel Assistant
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background chat-grid">
+    <ion-grid class="chat-grid">
+        <ion-row class="messages" id="messages">
+            <ion-col>
+                <img alt="Image error" class="img-responsive chat-bot-image" [src]="dataService.getFileUrlById('b174c7d2-21a3-4697-9ee5-80b5ece60609.Group_4')">
+                <ion-grid class="messages-grid ion-padding-start" id="message-grid">
+                    <ion-row [ngClass]="{'out': m.type === &quot;out&quot;}" *ngFor="let m of messages">
+                        <ion-col class="message-cell" [ngClass]="{'out': m.type === &quot;out&quot;}">
+                            <div class="message-container" [ngClass]="{'out': m.type === &quot;out&quot;}">
+                                <div [innerHTML]="m.msg">
+                                </div>
+                                <ion-card class="white-background" [href]="link.url" target="&quot;_blank&quot;"
+                                *ngFor="let link of m.richLinks">
+                                    <img alt="Image error" [src]="link.image" *ngIf="link.image">
+                                    <ion-card-content *ngIf="link.description && link.title">
+                                        <ion-card-title>
+                                            {{link.title}}
+                                        </ion-card-title>
+                                        <p>
+                                            <ion-text>
+                                                {{link.description}}
+                                            </ion-text>
+                                            <a [href]="link.url">
+                                            <ion-text      color="primary" *ngIf="link.title"  >
+                                            Read more
+                                            </ion-text>
+                                            </a>
+                                        </p>
+                                    </ion-card-content>
+                                </ion-card>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+        <ion-row class="message-area">
+            <ion-col>
+                <ion-grid class="ion-padding-start">
+                    <ion-row class="ion-justify-content-between ion-nowrap">
+                        <ion-col size="10">
+                            <ion-textarea class="message-text-area white-background" rows="1" wrap="hard" placeholder="Type something"
+                            [(ngModel)]="message" autofocus="true">
+                            </ion-textarea>
+                            <ion-input [(ngModel)]="message" autofocus="true" clearInput="true" placeholder="Type something"
+                            class="message-text-input ">
+                            </ion-input>
+                        </ion-col>
+                        <ion-col class="ion-text-right">
+                            <ion-chip class="action-chip white-background" (click)="buttonClick()">
+                                <ion-icon name="logo-ionic" color="primary" class="ion-no-margin" src="assets/images/{{message ? 'send' : 'microphone'}}.svg">
+                                </ion-icon>
+                            </ion-chip>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row class="scrollX ion-justify-content-between ion-nowrap" *ngIf="hints.length">
+                        <ion-col *ngFor="let hint of hints">
+                            <ion-button color="primary" class="tag-button" (click)="sendMessage(hint)">
+                                {{hint}}
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

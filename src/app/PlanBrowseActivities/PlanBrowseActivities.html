@@ -1,0 +1,51 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-button color="dark" (click)="Apperyio.navigateTo('home/Schedule/myworkouts')">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Build my plan
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-searchbar>
+                </ion-searchbar>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-text class="h3">
+                    Browse activities
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="gray-background" (click)="checkActivity(activity)" *ngFor="let activity of activities">
+                    <div class="activity-chip">
+                        <ion-icon name="logo-ionic" color="primary" class="ion-no-margin" src="assets/images/{{activity.icon}}.svg">
+                        </ion-icon>
+                    </div>
+                    <ion-label class="ion-margin-start">
+                        <ion-text>
+                            {{activity.name}}
+                        </ion-text>
+                    </ion-label>
+                    <ion-checkbox class="gray-background" [(ngModel)]="activity.isChecked">
+                    </ion-checkbox>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-button expand="full" mode="ios" shape="round" class="add-button" (click)="addActivities()"
+    [hidden]="!selectedActivities.length">
+        Add {{selectedActivities.length}} activities
+    </ion-button>
+</ion-content>

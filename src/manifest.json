@@ -1,0 +1,20 @@
+{
+    "short_name": "fitnessTrainerApp",
+    "name": "fitnessTrainerApp",
+    "description": "",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "start_url": "/",
+    "scope": "/",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "icons": [
+
+            {
+                "src": "assets/images/fintess-192.png",
+                "type": "image/png",
+                "sizes": "192x192"
+            }     
+            
+    ]
+}

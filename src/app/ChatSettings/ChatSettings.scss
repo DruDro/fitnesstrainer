@@ -1,0 +1,52 @@
+
+
+.profile-card {
+    box-shadow: none;
+}
+
+.user-photo {
+    position: relative;
+    flex: 0 1 96px;
+    margin:var(--single-padding);
+    .avatar{
+        object-fit:cover;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+}
+
+.photo-btn {
+    --background: rgba(#557DDE, .64);
+    --background-hover: rgba(#557DDE, .64);
+    --background-focused: rgba(#557DDE, .64);
+    --background-activated: rgba(#557DDE, .64);
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.bot-shadow-box {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+
+.name-input  {
+    @extend .bot-shadow-box;
+    border-radius: 50px;
+    padding: 0 var(--single-padding)!important;
+}
+
+
+
+.apply-btn  {
+    position: sticky;
+    width: calc(100% - 64px);
+    left: 32px;
+    bottom: 16px;
+    z-index:9999;
+}

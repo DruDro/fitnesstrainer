@@ -1,0 +1,52 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-button color="primary" fill="clear" backButton="">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios" color="primary">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="dark">
+            Members
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background" forceOverscroll="false">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-searchbar>
+                </ion-searchbar>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <h3 class="ion-padding-start">
+                    Select a member
+                </h3>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-list>
+                    <ion-item class="gray-background" *ngFor="let contact of contactsList">
+                        <ion-avatar slot="start">
+                            <ion-img alt="Image error" [src]="contact.avatar">
+                            </ion-img>
+                        </ion-avatar>
+                        <ion-label>
+                            <ion-text>
+                                <h4>
+                                    {{this.contact.displayName}}
+                                </h4>
+                            </ion-text>
+                            <ion-note>
+                                {{this.contact.phoneNumber}}
+                            </ion-note>
+                        </ion-label>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

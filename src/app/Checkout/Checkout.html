@@ -1,0 +1,73 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button color="primary" fill="clear" backButton="">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios" color="primary">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Buy
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-item class="gray-background" lines="none">
+                    <ion-label>
+                        <h3>
+                            Wallet
+                        </h3>
+                    </ion-label>
+                    <ion-text color="primary" style="margin-left: auto; display: inline-block;">
+                        Add payment method
+                    </ion-text>
+                </ion-item>
+                <ion-card mode="ios" class="white-background ion-no-margin ion-margin-bottom ion-margin-horizontal">
+                    <ion-card-content>
+                        <ion-list>
+                            <ion-item lines="none" class="ion-align-items-start" *ngFor="let card of cards">
+                                <div slot="start" class="card-logo gray-background ion-padding">
+                                    <ion-img alt="Image error" src="assets/images/MC.png">
+                                    </ion-img>
+                                </div>
+                                <ion-label>
+                                    <h4>
+                                        <ion-text color="primary">
+                                            {{card.cardProvider}} • {{card.lastFourDigits}}
+                                        </ion-text>
+                                    </h4>
+                                    <ion-note>
+                                        {{card.expirationDate.month}}/{{card.expirationDate.year}}
+                                    </ion-note>
+                                    <div [hidden]="selectedCard !== card">
+                                        <ion-img alt="Image error" src="assets/images/card.png">
+                                        </ion-img>
+                                    </div>
+                                </ion-label>
+                                <ion-radio name="card" value="{{card.lastFourDigits}}" slot="end" [checked]="selectedCard === card"
+                                (ionSelect)="selectedCard = card">
+                                </ion-radio>
+                            </ion-item>
+                        </ion-list>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <subscription-card [subscription]="checkoutService.pendingSubscription" [hideBuyButton]="true">
+                </subscription-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-button expand="block" shape="round" (click)="confirmCheckout()">
+                    Confirm
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

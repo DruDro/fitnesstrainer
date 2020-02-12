@@ -1,0 +1,61 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-menu-button autoHide="true" color="primary">
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            My account
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button shape="round" (click)="Apperyio.navigateTo('home/Profile/accountdetails')"
+            [routerLink]="['/']">
+                <ion-icon name="information-circle-outline" color="primary">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background">
+    <ion-grid class="ion-padding">
+        <ion-row>
+            <ion-col>
+                <ion-card class="ion-padding-top ion-padding-bottom ion-no-margin white-background">
+                    <ion-item lines="none">
+                        <ion-img alt="Image error" class="avatar" [src]="dataService.getFileUrlById(trainer.avatar)">
+                        </ion-img>
+                        <ion-label class="ion-padding-start">
+                            <h3>
+                                {{trainer.firstName}} {{trainer.lastName}}
+                            </h3>
+                            <ion-note>
+                                {{trainer.position}}
+                            </ion-note>
+                        </ion-label>
+                    </ion-item>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-padding-bottom">
+            <ion-col class="ion-padding-top">
+                <ion-text class="h1 ion-padding">
+                    Schedule
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-justify-content-between" *ngFor="let workout of trainer.workouts">
+            <ion-col>
+                <ion-label color="dark" class="h3 ion-padding-vertical">
+                    {{workout.date | date:'EEEE, MMMM d' }}
+                </ion-label>
+                <workout-card class="ion-padding-top" [booked]="bookedWorkouts.includes(workout._id)"
+                (book)="bookWorkout($event)" [workout]="workout" actionType="book">
+                </workout-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

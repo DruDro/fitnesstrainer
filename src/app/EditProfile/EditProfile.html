@@ -1,0 +1,128 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button color="primary" fill="clear" backButton="">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios" color="primary">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Account Details
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-card class="white-background profile-card">
+                    <ion-card-content class="ion-no-padding">
+                        <ion-item class="ion-no-padding" lines="none">
+                            <div class="user-photo">
+                                <ion-img alt="Image error" class="avatar" src="assets/images/avatar.png">
+                                </ion-img>
+                                <ion-fab-button class="photo-btn">
+                                    <ion-icon name="camera">
+                                    </ion-icon>
+                                </ion-fab-button>
+                            </div>
+                            <ion-label class="ion-padding-start">
+                                <h3>
+                                    {{this.dataService.getFullUserName()}}
+                                </h3>
+                                <a color="primary">
+                                {{this.dataService.org.name}}
+                                </a>
+                            </ion-label>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="gray-background" lines="none">
+                    <ion-label>
+                        <h3>
+                            Personal Information
+                        </h3>
+                    </ion-label>
+                    <ion-text color="primary" (click)="updateUser()">
+                        save
+                    </ion-text>
+                </ion-item>
+                <ion-card mode="ios" class="personal-info-list white-background ion-no-margin ion-margin-bottom ion-margin-horizontal">
+                    <ion-card-content>
+                        <ion-item>
+                            <ion-label color="medium" position="stacked">
+                                First Name
+                            </ion-label>
+                            <ion-input [(ngModel)]="user.firstName" placeholder="Enter text" step="1">
+                            </ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label color="medium" position="stacked">
+                                Last Name
+                            </ion-label>
+                            <ion-input [(ngModel)]="user.lastName" placeholder="Enter text" step="2">
+                            </ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label color="medium" position="stacked">
+                                Address
+                            </ion-label>
+                            <ion-input placeholder="Enter text" step="3">
+                            </ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label color="medium" position="stacked">
+                                City
+                            </ion-label>
+                            <ion-input placeholder="Enter text" step="4">
+                            </ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label color="medium" position="stacked">
+                                State
+                            </ion-label>
+                            <ion-input placeholder="Enter text" step="5">
+                            </ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label color="medium" position="stacked">
+                                Zip
+                            </ion-label>
+                            <ion-input inputmode="numeric" placeholder="Enter text" step="6" type="number">
+                            </ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label color="medium" position="stacked">
+                                Phone
+                            </ion-label>
+                            <ion-input inputmode="tel" placeholder="Enter text" step="7" type="tel">
+                            </ion-input>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="gray-background" lines="none">
+                    <ion-text color="primary">
+                        Change password
+                    </ion-text>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="gray-background" (click)="this.Apperyio.navigateTo('Login')" lines="none">
+                    <ion-text color="danger">
+                        Logout
+                    </ion-text>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

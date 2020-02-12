@@ -1,0 +1,47 @@
+ion-card-content {
+    padding: var(--single-padding);
+}
+
+.profile-card {
+    box-shadow: none;
+}
+
+.user-photo {
+    position: relative;
+    width: 96px;
+    height: 96px;
+}
+
+.photo-btn {
+    --background: rgba(#557DDE, .64);
+    --background-hover: rgba(#557DDE, .64);
+    --background-focused: rgba(#557DDE, .64);
+    --background-activated: rgba(#557DDE, .64);
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.personal-info-list {
+    input {
+        font-weight:bold;
+    }
+}
+
+.subscriptions-card {
+    border: 2px solid var(--ion-color-primary);
+    border-width: 3px 3px 3px 8px;
+}
+
+.light-btn {
+    color: var(--ion-color-primary)!important;
+}
+
+.card-logo {
+    border-daius: 8px;
+    background: var(--content-background-gray);
+}

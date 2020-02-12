@@ -1,0 +1,25 @@
+.workout-plan-card {
+    margin-bottom: 16px;
+}
+
+.plan-activity-container:not(:last-child) {
+    border-bottom: 1px solid var(--ion-color-light);
+    margin-bottom: 10px;
+}
+
+.message {
+    display: block;
+}
+
+.no-workouts-icon {
+    font-size: 110px;
+}
+
+.workout-plan-avatar {
+    height: 96px;
+    width: 96px;
+}
+
+.workout-plan-name {
+    padding-left: 15px;
+}

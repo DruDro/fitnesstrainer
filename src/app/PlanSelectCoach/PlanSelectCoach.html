@@ -1,0 +1,41 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-button (click)="Apperyio.navigateTo('home/Schedule/plancreateworkouts')">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Build my plan
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background">
+    <ion-grid class="ion-padding">
+        <ion-row>
+            <ion-col>
+                <ion-searchbar>
+                </ion-searchbar>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-text class="h3">
+                    Select Coach
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <user-list-item *ngFor="let coach of coaches" avatarKey="avatar" [selected]="selectedCoach === coach"
+                noteKey="position" nameKey="name" (selectUser)="selectCoach($event)" [user]="coach">
+                </user-list-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-button expand="full" mode="ios" shape="round" class="save-button" (click)="save()"
+    [hidden]="!selectedCoach">
+        Save
+    </ion-button>
+</ion-content>

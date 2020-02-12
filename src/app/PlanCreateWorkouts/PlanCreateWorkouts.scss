@@ -1,0 +1,19 @@
+.workout-name-input {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    border-radius: 50px;
+    --padding-start: var(--single-padding);
+}
+
+
+.apply-btn  {
+    position: sticky;
+    width: calc(100% - 64px);
+    left: 32px;
+    bottom: 16px;
+    z-index:9999;
+}
+
+.workout-plan-avatar {
+    height: 96px;
+    width: 96px;
+}

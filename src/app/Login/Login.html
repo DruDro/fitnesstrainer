@@ -1,0 +1,62 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-title color="dark" class="toolbar-title ">
+            Fitness Trainer App!
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="login-container" fullscreen="true">
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+        <ion-grid class="login-container-grid ion-padding" no-border="">
+            <ion-row>
+                <ion-col size="5" class="ion-text-left ion-padding-top">
+                    <ion-icon name="logo-ionic" color="primary" size="large" class="runner-icon" (click)="this.sendMsgToAppleWatch()"
+                    src="assets/images/dumbbell.svg">
+                    </ion-icon>
+                </ion-col>
+                <ion-col class="ion-text-left ion-padding-top">
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="ion-padding-top">
+                    <h1 class="ion-no-margin">
+                        Glad to see you
+                    </h1>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="ion-no-padding">
+                    <h2 color="dark" class="ion-no-margin">
+                        Log in to continue
+                    </h2>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="ion-padding-top">
+                    <ion-input [(ngModel)]="userLogin.username" ngModel="" color="dark" disabled="false"
+                    name="username" placeholder="Username" required="true" type="text">
+                    </ion-input>
+                    <ion-input [(ngModel)]="userLogin.password" ngModel="" color="dark" name="password"
+                    placeholder="Password" required="true" type="password">
+                    </ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="ion-text-right">
+                    <ion-text color="primary">
+                        Forgot something?
+                        <br>
+                    </ion-text>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="ion-text-center ion-padding-top">
+                    <ion-button buttonType="button" color="primary" fill="solid" size="default" type="submit"
+                    class="login-container-button " [disabled]="!loginForm.valid">
+                        Login
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

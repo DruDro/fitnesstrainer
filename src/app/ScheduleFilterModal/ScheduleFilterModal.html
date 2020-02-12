@@ -1,0 +1,66 @@
+<ion-content class="modal-content" (pandown)="dismiss()">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <div class="swipe-indicator">
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-text color="dark" class="h3">
+                    Filter
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-text color="primary" class="h4">
+                    By activity
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="2" *ngFor="let activity of workoutTypes">
+                <activity-filter [selected]="filter.activities.includes(activity._id)" (selectFilter)="selectFilter('activity', $event)"
+                [activity]="activity">
+                </activity-filter>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-text color="primary" class="h4">
+                    By trainer
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="6" *ngFor="let trainer of trainers">
+                <coach-filter [selected]="filter.coaches.includes(trainer._id)" (selectFilter)="selectFilter('coach', $event)"
+                [trainer]="trainer">
+                </coach-filter>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-text color="primary" class="h4">
+                    By location
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col *ngFor="let location of locations">
+                <location-filter [selected]="filter.locations.includes(location.info.type)" (selectFilter)="selectFilter('location', $event)"
+                [location]="location">
+                </location-filter>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-button buttonType="button" class="apply" (click)="dismiss()" [disabled]="isApplyButtonDisabled()">
+                    Apply
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

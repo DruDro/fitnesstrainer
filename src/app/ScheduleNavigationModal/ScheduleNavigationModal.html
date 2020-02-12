@@ -1,0 +1,46 @@
+<ion-content class="modal-content" (pandown)="dismiss()">
+    <div>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <div class="swipe-indicator">
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <div class="ion-padding">
+            <ion-text color="dark" class="h3">
+                My Schedule
+            </ion-text>
+        </div>
+        <ion-list class="ion-no-padding">
+            <ion-item (click)="dismiss('schedule')" [routerLink]="['/schedule']">
+                <div slot="start" class="schedule_group_icon">
+                    <ion-icon name="logo-ionic" class="ion-no-margin" src="assets/images/classes.svg">
+                    </ion-icon>
+                </div>
+                <ion-label class="h4">
+                    Group classes
+                </ion-label>
+            </ion-item>
+            <ion-item (click)="dismiss('courts')" [routerLink]="['/schedule']">
+                <div slot="start" class="schedule_group_icon">
+                    <ion-icon name="logo-ionic" class="ion-no-margin" src="assets/images/courts.svg">
+                    </ion-icon>
+                </div>
+                <ion-label class="h4">
+                    Tennis courts
+                </ion-label>
+            </ion-item>
+            <ion-item (click)="dismiss('camps')" [routerLink]="['/camps']">
+                <div slot="start" class="schedule_group_icon">
+                    <ion-icon name="logo-ionic" class="ion-no-margin" src="assets/images/camps.svg">
+                    </ion-icon>
+                </div>
+                <ion-label class="h4">
+                    Children's camp
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

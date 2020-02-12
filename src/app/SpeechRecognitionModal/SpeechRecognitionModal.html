@@ -1,0 +1,38 @@
+<ion-content class="modal-content" (pandown)="dismiss()">
+    <ion-grid class="speech-grid">
+        <ion-row>
+            <ion-col>
+                <div class="swipe-indicator">
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-text color="dark" class="h3">
+                    Speak
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row class="speech-wrapper">
+            <ion-col class="ion-text-center">
+                <div class="custom-loading">
+                    <div class="mic-wrapper">
+                        <ion-icon name="mic">
+                        </ion-icon>
+                    </div>
+                </div>
+                <h1>
+                    {{text}}
+                </h1>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-button buttonType="button" color="primary" fill="outline" shape="round" size="default"
+                class="cancel" (click)="dismiss()">
+                    Cancel
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,235 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../assets/fonts/Gilroy-ExtraBold.otf');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../assets/fonts/SourceSansPro-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../assets/fonts/SourceSansPro-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+:root {
+    /** primary **/
+    --ion-color-primary: #557DDE;
+    --ion-color-primary-rgb: 85, 125, 222;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
+    --ion-color-primary-shade: #4b6ec3;
+    --ion-color-primary-tint: #668ae1;
+    /** secondary **/
+    --ion-color-secondary: #30D2B4;
+    --ion-color-secondary-rgb: 48, 210, 180;
+    --ion-color-secondary-contrast: #000000;
+    --ion-color-secondary-contrast-rgb: 0, 0, 0;
+    --ion-color-secondary-shade: #2ab99e;
+    --ion-color-secondary-tint: #45d7bc;
+    /** tertiary **/
+    --ion-color-tertiary: #7698E9;
+    --ion-color-tertiary-rgb: 118, 152, 233;
+    --ion-color-tertiary-contrast: #000000;
+    --ion-color-tertiary-contrast-rgb: 0, 0, 0;
+    --ion-color-tertiary-shade: #6886cd;
+    --ion-color-tertiary-tint: #84a2eb;
+    /** success **/
+    --ion-color-success: #10dc60;
+    --ion-color-success-rgb: 16, 220, 96;
+    --ion-color-success-contrast: #ffffff;
+    --ion-color-success-contrast-rgb: 255, 255, 255;
+    --ion-color-success-shade: #0ec254;
+    --ion-color-success-tint: #28e070;
+    /** warning **/
+    --ion-color-warning: #ffce00;
+    --ion-color-warning-rgb: 255, 206, 0;
+    --ion-color-warning-contrast: #ffffff;
+    --ion-color-warning-contrast-rgb: 255, 255, 255;
+    --ion-color-warning-shade: #e0b500;
+    --ion-color-warning-tint: #ffd31a;
+    /** danger **/
+    --ion-color-danger: #FA3C67;
+    --ion-color-danger-rgb: 250, 60, 103;
+    --ion-color-danger-contrast: #ffffff;
+    --ion-color-danger-contrast-rgb: 255, 255, 255;
+    --ion-color-danger-shade: #dc355b;
+    --ion-color-danger-tint: #fb5076;
+    /** dark **/
+    --ion-color-dark: #202224;
+    --ion-color-dark-rgb: 32, 34, 36;
+    --ion-color-dark-contrast: #ffffff;
+    --ion-color-dark-contrast-rgb: 255, 255, 255;
+    --ion-color-dark-shade: #1c1e20;
+    --ion-color-dark-tint: #36383a;
+    /** medium **/
+    --ion-color-medium: #A1A7B6;
+    --ion-color-medium-rgb: 161, 167, 182;
+    --ion-color-medium-contrast: #000000;
+    --ion-color-medium-contrast-rgb: 0, 0, 0;
+    --ion-color-medium-shade: #8e93a0;
+    --ion-color-medium-tint: #aab0bd;
+    /** light **/
+    --ion-color-light: #EFF3FD;
+    --ion-color-light-rgb: 239, 243, 253;
+    --ion-color-light-contrast: #000000;
+    --ion-color-light-contrast-rgb: 0, 0, 0;
+    --ion-color-light-shade: #d2d6df;
+    --ion-color-light-tint: #f1f4fd;
+    /** background colors**/
+    --content-background-gray: #FAFAFA;
+    --content-background-white: #FFFFFF;
+    --ion-font-family: 'Source Sans Pro', 'Gilroy', -apple-system, BlinkMacSystemFont, sans-serif;
+    .red-theme {
+        // your colors --ion-color-primary etc
+        --ion-color-primary: #fa3c67;
+        --ion-color-primary-rgb: 250, 60, 103;
+        --ion-color-primary-contrast: #ffffff;
+        --ion-color-primary-contrast-rgb: 255, 255, 255;
+        --ion-color-primary-shade: #dc355b;
+        --ion-color-primary-tint: #fb5076;
+        --ion-color-tertiary: #fc7795;
+    }
+    .green-theme {
+        --ion-color-primary: #30D2B4;
+        --ion-color-primary-rgb: 48, 210, 180;
+        --ion-color-primary-contrast: #ffffff;
+        --ion-color-primary-contrast-rgb: 255, 255, 255;
+        --ion-color-primary-shade: #2ab99e;
+        --ion-color-primary-tint: #45d7bc;
+        --ion-color-tertiary: #6ee0cb;
+        
+        --ion-color-secondary: #557DDE;
+        --ion-color-secondary-rgb: 85, 125, 222;
+        --ion-color-secondary-contrast: #ffffff;
+        --ion-color-secondary-contrast-rgb: 255, 255, 255;
+        --ion-color-secondary-shade: #4b6ec3;
+        --ion-color-secondary-tint: #668ae1;
+    }
+    /** paddings **/
+    --half-padding: 8px;
+    --single-padding: 16px;
+    --double-padding: 32px;
+    --triple-padding: 48px;
+    --quadruple-padding: 64px;
+    --large-icon-size: 64px;
+    h1,
+    .h1 {
+        font-size: 34px;
+        font-family: 'Gilroy';
+    }
+    h3,
+    .h3 {
+        font-size: 24px;
+        font-family: 'Gilroy';
+    }
+    h4,
+    .h4 {
+        font-size: 16px;
+        font-family: 'Gilroy';
+    }
+    h5,
+    .h5 {
+        font-size: 14px;
+        font-family: 'Gilroy';
+    }
+    h6,
+    .h6 {
+        font-size: 12px;
+        font-family: 'Gilroy';
+    }
+    .h7 {
+        font-size: 10px;
+        font-family: 'Gilroy';
+    }
+    ion-header {
+        text-align: center;
+        ion-title {
+            font-family: 'Gilroy';
+        }
+    }
+    ion-note {
+        font-size: 12px;
+        --color: var(--ion-color-medium);
+    }
+    ion-button {
+        font-family: 'Gilroy';
+    }
+    .gray-background {
+        --background: var(--content-background-gray);
+    }
+    .white-background {
+        --background: var( --content-background-white);
+    }
+    ion-modal.filter {
+        padding-top: 155px;
+        .modal-wrapper {
+            box-shadow: 0px -6px 20px rgba(0, 0, 0, 0.12);
+            border-radius: 32px 32px 0px 0px;
+        }
+    }
+    .custom-loading .mic-wrapper {
+        background-color: var(--ion-color-primary);
+        height: 90px;
+        width: 90px;
+        text-align: center;
+        padding: 15px 0;
+        border-radius: 50%;
+        border: 5px solid #CFDBF6;
+        -webkit-animation: speech-recording 2s infinite;
+        ion-icon {
+            font-size: 50px;
+            color: var(--ion-color-primary-contrast);
+        }
+    }
+    .vertical-middle {
+        vertical-align: middle;
+    }
+    @keyframes speech-recording {
+        from {
+            -webkit-transform: scale(0.8)
+        }
+        to {
+            -webkit-transform: scale(1)
+        }
+    }
+    ion-row.locations-instructions {
+        ion-col.duration-col {
+            display: flex;
+            flex-direction: column;
+            ion-text.duration {
+                font-size: 18px;
+                font-weight: 600;
+                color: var(--ion-color-primary);
+            }
+            ion-text.distance {
+                color: var(--ion-color-medium);
+            }
+        }
+    }
+    .alert-radio-label {
+        font-size: 16px;
+    }
+    .swipe-indicator {
+        width: 64px;
+        height: 5px;
+        background-color: #202224;
+        opacity: 0.06;
+        border-radius: 100px;
+        margin: auto;
+    }
+    .swiper-pagination {
+        bottom: 0!important;
+    }
+}

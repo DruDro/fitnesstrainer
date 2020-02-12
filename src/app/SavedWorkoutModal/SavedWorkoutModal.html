@@ -1,0 +1,81 @@
+<ion-content class="modal-content" (pandown)="dismiss()">
+    <ion-grid class="speech-grid">
+        <ion-row>
+            <ion-col>
+                <div class="swipe-indicator">
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row class="saved-header">
+            <ion-col class="ion-text-center">
+                <ion-text color="dark" class="h3">
+                    Workout saved
+                </ion-text>
+                <div class="ion-margin-top">
+                    <ion-icon name="checkmark-circle-outline" color="success" size="large" class="large-success">
+                    </ion-icon>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row class="speech-wrapper">
+            <ion-col class="ion-text-center">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                            <ion-list>
+                                <ion-item detail="false">
+                                    <ion-label position="stacked">
+                                        Workout activity
+                                    </ion-label>
+                                    <h2>
+                                        {{mappedWorkout.activityType}}
+                                    </h2>
+                                </ion-item>
+                                <ion-item detail="false">
+                                    <ion-label position="stacked">
+                                        Started
+                                    </ion-label>
+                                    <h2>
+                                        {{mappedWorkout.startDate}}
+                                    </h2>
+                                </ion-item>
+                                <ion-item detail="false">
+                                    <ion-label position="stacked">
+                                        Duration
+                                    </ion-label>
+                                    <h2>
+                                        {{mappedWorkout.duration}}
+                                    </h2>
+                                </ion-item>
+                                <ion-item detail="false">
+                                    <ion-label position="stacked">
+                                        Distance
+                                    </ion-label>
+                                    <h2>
+                                        {{mappedWorkout.distance}}
+                                    </h2>
+                                </ion-item>
+                                <ion-item detail="false">
+                                    <ion-label position="stacked">
+                                        Calories burned
+                                    </ion-label>
+                                    <h2>
+                                        {{mappedWorkout.energy}}
+                                    </h2>
+                                </ion-item>
+                            </ion-list>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+        <ion-row class="modal-action">
+            <ion-col>
+                <ion-button buttonType="button" color="primary" fill="outline" shape="round" size="default"
+                class="cancel" (click)="dismiss()">
+                    OK
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

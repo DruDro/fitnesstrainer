@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            This is test page. Will be deleted
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="4">
+                <ion-button>
+                    Ready
+                </ion-button>
+            </ion-col>
+            <ion-col>
+                <ion-text>
+                    sa
+                    <br>
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-button (click)="this.requestAutorization()">
+                    requestAutorization
+                </ion-button>
+            </ion-col>
+            <ion-col>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-button (click)="checkAuthStatus()">
+                    checkAuthStatus
+                </ion-button>
+            </ion-col>
+            <ion-col>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-button (click)="findWorkouts()">
+                    findWorkouts
+                </ion-button>
+            </ion-col>
+            <ion-col>
+                <ion-text>
+                    {{ this.workouts }}
+                </ion-text>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

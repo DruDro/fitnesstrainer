@@ -1,0 +1,94 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-button color="primary" fill="clear" backButton="">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios" color="primary">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            {{ chatName }}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-card class="profile-card">
+                    <ion-card-content class="ion-no-padding">
+                        <ion-item class="ion-no-padding gray-background" lines="none">
+                            <div class="user-photo">
+                                <ion-img alt="Image error" class="avatar" [src]="picture ? picture : &quot;data:image/svg+xml,%3Csvg width='96' height='96' viewBox='0 0 96 96' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='48' cy='48' r='48' fill='%23EDEDED'/%3E%3C/svg%3E%0A&quot;">
+                                </ion-img>
+                                <ion-fab-button class="photo-btn">
+                                    <ion-icon name="camera">
+                                    </ion-icon>
+                                </ion-fab-button>
+                            </div>
+                            <div class="ion-padding-start">
+                                <ion-input [(ngModel)]="chatName" placeholder="Type something" class="name-input">
+                                </ion-input>
+                                <ion-note>
+                                    {{chat?.users.length}} members
+                                </ion-note>
+                            </div>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <a (click)="leaveChat()">
+                <ion-text      color="danger"  >
+                Leave chat
+                </ion-text>
+                </a>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                            <h3>
+                                Members
+                            </h3>
+                            <ion-list class="ion-no-padding gray-background contact-list">
+                                <ion-item class="ion-no-padding gray-background" *ngFor="let contact of contacts">
+                                    <ion-avatar slot="start">
+                                        <ion-img alt="Image error" [src]="dataService.getFileUrlById(contact?.avatar)">
+                                        </ion-img>
+                                    </ion-avatar>
+                                    <ion-label>
+                                        <h4>
+                                            <ion-text *ngIf="contact?.first_name">
+                                                {{contact?.first_name}} {{contact?.last_name}}
+                                            </ion-text>
+                                            <ion-text *ngIf="contact?.firstName && contact?.lastName">
+                                                {{contact?.firstName}} {{contact?.lastName}}
+                                            </ion-text>
+                                        </h4>
+                                        <ion-note>
+                                            <ion-text>
+                                                (212) 348-2626
+                                            </ion-text>
+                                        </ion-note>
+                                    </ion-label>
+                                </ion-item>
+                            </ion-list>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-button expand="full" shape="round" class="apply-btn" (click)="save()" id="createChatBtn">
+        save
+    </ion-button>
+</ion-content>

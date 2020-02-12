@@ -1,0 +1,11 @@
+#typeToggle{
+    --background: var(--ion-color-primary);
+    --background-checked: var(--ion-color-secondary);
+    --handle-background: white;
+    --handle-background-checked: white;
+}
+
+.selected{
+    font-weight: bold;
+}
+

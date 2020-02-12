@@ -1,0 +1,44 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-button color="primary" fill="clear" [routerLink]="['/home']">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios" color="primary">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="dark">
+            Locations
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <div class="travelModes">
+                    <div class="mode" [ngClass]="{'selected': travelMode === 'DRIVING'}" (click)="changeMode('DRIVING')">
+                        <ion-icon name="car" color="primary" [color]="travelMode === 'DRIVING' ? 'light' : 'primary'">
+                        </ion-icon>
+                    </div>
+                    <div class="mode" [ngClass]="{'selected': travelMode === 'WALKING'}" (click)="changeMode('WALKING')">
+                        <ion-icon name="walk" color="primary" [color]="travelMode === 'WALKING' ? 'light' : 'primary'">
+                        </ion-icon>
+                    </div>
+                    <div class="mode" [ngClass]="{'selected': travelMode === 'TRANSIT'}" (click)="changeMode('TRANSIT')">
+                        <ion-icon name="train" color="primary" [color]="travelMode === 'TRANSIT' ? 'light' : 'primary'">
+                        </ion-icon>
+                    </div>
+                    <div class="mode" [ngClass]="{'selected': travelMode === 'BICYCLING'}" (click)="changeMode('BICYCLING')">
+                        <ion-icon name="bicycle" color="primary" [color]="travelMode === 'BICYCLING' ? 'light' : 'primary'">
+                        </ion-icon>
+                    </div>
+                    <ion-button fill="clear" class="details-button" (click)="button2Click__j_659($event, currentItem)">
+                        Details
+                    </ion-button>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div class="my-google-map" #map="">
+    </div>
+</ion-content>

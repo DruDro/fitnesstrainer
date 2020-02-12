@@ -1,0 +1,74 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-button color="primary" fill="clear" backButton="">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios" color="primary">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="dark">
+            Trainer
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background" *ngIf="trainer">
+    <ion-grid class="ion-padding">
+        <ion-row>
+            <ion-col>
+                <ion-card class="ion-padding-top ion-padding-bottom ion-no-margin white-background">
+                    <ion-item lines="none">
+                        <ion-img alt="Image error" class="avatar" [src]="dataService.getFileUrlById(trainer.avatar)">
+                        </ion-img>
+                        <ion-label class="ion-padding-start">
+                            <h3>
+                                {{trainer.firstName}} {{trainer.lastName}}
+                            </h3>
+                            <ion-note>
+                                {{trainer.position}}
+                            </ion-note>
+                        </ion-label>
+                    </ion-item>
+                    <ion-grid class="coach-actions">
+                        <ion-row>
+                            <ion-col class="ion-no-padding ion-no-margin ion-text-center">
+                                <ion-chip (click)="createChat()" color="primary">
+                                    <ion-label color="primary">
+                                        Message
+                                    </ion-label>
+                                </ion-chip>
+                            </ion-col>
+                            <ion-col class="ion-no-padding ion-no-margin ion-text-center">
+                                <ion-chip color="primary">
+                                    <ion-label color="primary">
+                                        Add to favorites
+                                    </ion-label>
+                                </ion-chip>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-padding-bottom">
+            <ion-col class="ion-padding-top">
+                <ion-text class="h1 ion-padding">
+                    Schedule
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-justify-content-between" *ngFor="let workout of trainer.workouts">
+            <ion-col>
+                <ion-label color="dark" class="h3 ion-padding-vertical">
+                    {{workout.date | date:'EEEE, MMMM d' }}
+                </ion-label>
+                <workout-card class="ion-padding-top" [booked]="bookedWorkouts.includes(workout._id)"
+                (book)="bookWorkout($event)" [workout]="workout" actionType="book">
+                </workout-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

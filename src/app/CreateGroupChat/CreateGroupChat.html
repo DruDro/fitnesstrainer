@@ -1,0 +1,61 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-button color="primary" fill="clear" backButton="">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios" color="primary">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            New Group Chat
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-searchbar>
+                </ion-searchbar>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <h3>
+                    <ion-text>
+                        Select friends
+                    </ion-text>
+                </h3>
+                <ion-list class="ion-no-padding gray-background contact-list">
+                    <ion-item button="true" detail="false" class="ion-no-padding gray-background" *ngFor="let contact of contacts">
+                        <ion-avatar slot="start">
+                            <ion-img alt="Image error" [src]="dataService.getFileUrlById(contact.avatar)">
+                            </ion-img>
+                        </ion-avatar>
+                        <ion-label>
+                            <h4>
+                                <ion-text *ngIf="contact.first_name">
+                                    {{contact.first_name}} {{contact.last_name}}
+                                </ion-text>
+                                <ion-text *ngIf="contact.firstName">
+                                    {{contact.firstName}} {{contact.lastName}}
+                                </ion-text>
+                            </h4>
+                            <ion-note>
+                                <ion-text>
+                                    (212) 348-2626
+                                </ion-text>
+                            </ion-note>
+                        </ion-label>
+                        <ion-checkbox [(ngModel)]="contact.isChecked" (ionChange)="toggleContact(contact)">
+                        </ion-checkbox>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-button expand="full" shape="round" class="apply-btn" (click)="createChat()"
+    id="createChatBtn" [disabled]="selectedContacts.length < 1">
+        Continue {{selectedContacts.length}}
+    </ion-button>
+</ion-content>

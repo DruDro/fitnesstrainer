@@ -1,0 +1,36 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-button color="primary" fill="clear" backButton="">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios" color="primary">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="dark">
+            Buy
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-searchbar>
+                </ion-searchbar>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <h3 class="ion-padding-start">
+                    Choose your subscription
+                </h3>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <subscription-card [subscription]="subscription" *ngFor="let subscription of subscriptions">
+                </subscription-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,78 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-button [routerLink]="['/home']">
+                <ion-icon name="arrow-back" slot="icon-only" mode="ios">
+                </ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="dark">
+            Fitness world
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background">
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-item class="gray-background ion-no-padding ion-activatable" lines="none" (click)="html16Click__j_438($event, currentItem)">
+                    <ion-text class="h3 ">
+                        Children's camp
+                    </ion-text>
+                    <ion-icon name="arrow-down" color="primary">
+                    </ion-icon>
+                    <ion-ripple-effect>
+                    </ion-ripple-effect>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-grid>
+                    <ion-row class="camp-tabs">
+                        <ion-col class="camp-tab ion-text-center" [ngClass]="{'active':term.active}" (click)="selectTerm(term.name)"
+                        *ngFor="let term of terms">
+                            <ion-text>
+                                {{ term.name }} Term
+                            </ion-text>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-grid class="camps">
+                    <ion-row class="camp__row" *ngFor="let campTerm of campTerms">
+                        <ion-col class="ion-no-padding">
+                            <ion-card class="white-background camp" (click)="goToCamp(campTerm._id)">
+                                <div class="camp__photo">
+                                    <ion-img alt="Image error" class="camp__photo-img" [src]="dataService.getFileUrlById(campTerm.camp.titlePicture)">
+                                    </ion-img>
+                                </div>
+                                <ion-card-content>
+                                    <div>
+                                        <ion-text class="h4">
+                                            {{campTerm.camp.name}}
+                                        </ion-text>
+                                    </div>
+                                    <div>
+                                        <ion-text color="medium">
+                                            {{campTerm.startDate.$date | date:'dd.MM' }} - {{campTerm.endDate.$date | date:'dd.MM'
+                                            }}
+                                        </ion-text>
+                                    </div>
+                                    <div>
+                                        <ion-text color="medium">
+                                            {{campTerm.placesNumber - campTerm.users?.length}} places left
+                                        </ion-text>
+                                    </div>
+                                </ion-card-content>
+                            </ion-card>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

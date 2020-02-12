@@ -1,0 +1,40 @@
+	@import "../scss/__aio_components.scss"; 
+ion-menu {
+    ion-header {
+        height: 140px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        
+        ion-icon {
+            font-size: 32px;
+        }
+        
+        .title {
+            margin-top: auto;
+            text-align: left;
+            
+            .runner {
+                height: 24px;
+            }
+        
+            .label {
+                font-size: 24px;
+                line-height: 29px;
+                font-weight: 600;
+                font-family: 'Gilroy';
+            }
+        }
+    }
+    
+    ion-item {
+        ion-icon {
+            font-size: 32px;
+            margin-right: 12px;
+        }
+    
+        ion-label {
+            font-size: 16px;
+        }
+    }
+}

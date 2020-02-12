@@ -1,0 +1,43 @@
+<ion-header no-border>
+    <ion-toolbar class="gray-background">
+        <ion-buttons slot="start">
+            <ion-menu-button autoHide="true" color="primary">
+            </ion-menu-button>
+        </ion-buttons>
+        <ion-title color="dark">
+            Fitness world
+        </ion-title>
+        <ion-button color="primary" fill="clear" slot="end" (click)="button3Click__j_887($event, currentItem)">
+            <ion-icon name="funnel" slot="icon-only">
+            </ion-icon>
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="gray-background" *ngIf="allWorkouts">
+    <ion-grid class="ion-padding">
+        <ion-row>
+            <ion-col class="ion-text-left ion-padding-bottom">
+                <div>
+                    <calendar daily="true" (filterByDates)="filterWorkoutsByDates($event)">
+                    </calendar>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="ion-text-left ion-padding-bottom">
+                <trainer-schedule [date]="selectedDates[0]" [workouts]="workouts">
+                </trainer-schedule>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-padding-bottom ion-align-items-start ion-justify-content-between"
+        *ngIf="(workouts| json) == '{}'">
+            <ion-col class="ion-padding-top">
+                <div class="ion-padding-top ion-text-center">
+                    <ion-text>
+                        No classes available. Select another day
+                    </ion-text>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

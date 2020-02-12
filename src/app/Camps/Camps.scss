@@ -1,0 +1,32 @@
+.camps {}
+
+.camp-tabs {}
+
+.camp-tab {
+        color:var(--ion-color-medium);
+    &.active {
+        border-bottom: 2px solid var(--ion-color-primary);
+        color:var(--ion-color-dark);
+    }
+}
+
+.camp {
+    margin: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items:stretch;
+    &__row {
+        margin: 0 0 var(--single-padding);
+    }
+    &__photo {
+        flex: 0 0 120px;
+        &-img {
+            object-fit:cover;
+            height:100%;
+        }
+    }
+    ion-card-content{
+        flex: 1 1 auto
+    }
+}
