@@ -40,8 +40,11 @@ export class Home {
     public adsSlideOpts: any;
     public nextWorkout: any;
     public workouts: any = [];
+    public availableWorkouts: any = [];
+    public allWorkouts: any;
     public currentItem: any = null;
     public mappingData: any = {};
+    public selectedDates: any = [];
     isShowWorkoutDate(workout) {
         return workout.date.toDateString() !== new Date().toDateString();
     }
@@ -57,6 +60,16 @@ export class Home {
         console.log(this.dataService.getWorkoutMessage(this.nextWorkout));
     }
     ionViewDidLeave() {
+    }
+    filterWorkoutsByDates(selectedDates) {
+        this.selectedDates = selectedDates;
+        const selectedDateStrings = selectedDates.map(date => date.toDateString());
+        this.availableWorkouts = this.allWorkouts.filter(({
+            date
+        }) => {
+            return selectedDateStrings.includes(date.toDateString());
+        });
+        this.workouts = this.availableWorkouts;
     }
     constructor(public Apperyio: ApperyioHelperService, private $aio_mappingHelper: ApperyioMappingHelperService, private $aio_changeDetector: ChangeDetectorRef, public dataService: DataService, public backendService: BackendService, public navCtrl: NavController) {}
 }

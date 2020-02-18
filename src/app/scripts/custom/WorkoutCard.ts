@@ -18,9 +18,9 @@ import {
  */
 
 @Component({
-  selector: 'workout-card',
-  template: `
-   <ion-card class="ion-padding ion-no-margin white-background">
+    selector: 'workout-card',
+    template: `
+   <ion-card class="ion-padding ion-no-margin white-background" [ngClass]="{'schedule-item': scheduleItem}">
         <ion-grid class="schedule-container-grid ion-no-padding">
             <ion-row align-items-cesnter nowrap  [ngClass]="{'workout-top-row': this.fullViewMode}">
                 <ion-col size="7" align-self-center text-left>
@@ -91,9 +91,7 @@ import {
                         </ion-text>
                     </div>
                 </ion-col>
-               
             </ion-row>
-            
             <ion-row *ngIf="this.fullViewMode">
                 <ion-col align-self-end text-center>
                     <a (click)="Apperyio.navigateTo('home/Profile/referrals')">
@@ -101,34 +99,27 @@ import {
                     </a>
                 </ion-col>
             </ion-row>
-            
         </ion-grid>
     </ion-card>
   `,
-  styles: [`
-  
-      .workout-top-row {
+    styles: [`
+        .workout-top-row {
             border-bottom: 1px solid var(--ion-color-light);
             padding-bottom: 18px;
         }
-        
         .schedule-container-grid {
             --ion-grid-column-padding: 0px;
         }
-        
         ion-col ion-item ion-label {
             margin-left: 12px;
         }
-        
         .ion-chip-message {
             padding: 7px 20px;
         }
-        
         .ion-chip-activity {
             padding: var(--half-padding);
             border-radius: 6px;
         }
-        
         .book-button {
             display: flex;
             background-color: var(--ion-color-light);
@@ -138,47 +129,49 @@ import {
             text-align: center;
             float: right;
         }
-        
         .book-button.selected {
             background-color: var(--ion-color-primary);
         }
-        
         .book-button.selected ion-text {
             margin: auto 0;
         }
-        
         .book-button ion-text {
             margin: auto;
         }
-        
         .book-button ion-icon {
             font-size: 32px;
             margin-left: 7px;
         }
-    
+        .schedule-item{
+            border-radius:0;
+            border-bottom: 1px solid var(--ion-color-medium-tint);
+            box-shadow:0 0px 16px rgba(0,0,0,.12);
+            z-index:1;
+        }
     ` ]
 })
 class WorkoutCardComponent {
-  @Input() workout: Workout;
-  @Input() actionType: 'book' | 'message' = 'message';
-  @Input() fullViewMode: boolean = true;
-  @Input() saveAvailable: boolean;
-  @Input() booked: boolean = false;
-  @Input() showDate: boolean = false;
-  @Output() saveWorkout = new EventEmitter<Workout>();
-  @Output() book = new EventEmitter<string>();
-   
+    @Input() workout: Workout;
+    @Input() scheduleItem = false;
+    @Input() actionType: 'book' | 'message' = 'message';
+    @Input() fullViewMode = true;
+    @Input() saveAvailable: boolean;
+    @Input() booked = false;
+    @Input() showDate = false;
+    @Output() saveWorkout = new EventEmitter<Workout>();
+    @Output() book = new EventEmitter<string>();
+
     constructor(public dataService: DataService, private chatService: ChatService, public Apperyio: ApperyioHelperService) {
 
     }
     createChat(trainerId) {
         console.log('call to chatService')
         this.chatService.prepareChat(
-                [
-                    trainerId,
-                    this.dataService.user._id
-                ]
-            )
+            [
+                trainerId,
+                this.dataService.user._id
+            ]
+        )
             .then(() => {
                 this.Apperyio.navigateTo('home/Home/chatsettings')
             })

@@ -25,10 +25,22 @@
                 </h2>
             </ion-col>
         </ion-row>
-        <ion-row *ngFor="let workout of workouts">
-            <ion-col class="ion-no-padding">
-                <workout-card [showDate]="false" [workout]="workout" [fullViewMode]="false">
-                </workout-card>
+
+        <ion-row>
+            <ion-col class="ion-text-left ion-padding-bottom">
+                <h2>Here is your schedule</h2>
+                <trainer-schedule [date]="selectedDates[0]" [workouts]="workouts">
+                </trainer-schedule>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-padding-bottom ion-align-items-start ion-justify-content-between"
+        *ngIf="(workouts| json) == '{}'">
+            <ion-col class="ion-padding-top">
+                <div class="ion-padding-top ion-text-center">
+                    <ion-text>
+                        No classes available. Select another day
+                    </ion-text>
+                </div>
             </ion-col>
         </ion-row>
     </ion-grid>

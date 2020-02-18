@@ -32,14 +32,31 @@ import * as moment from 'moment';
                 </ion-note>
             </ion-col>
             <ion-col class="ion-no-padding">
-                <ion-item class="ion-no-padding" line="none" *ngIf="!slot.workout"></ion-item>
-                <workout-card [workout]="slot.workout" [fullViewMode]="false" *ngIf="slot.workout"></workout-card>
+                <ion-item class="slot ion-no-padding" [lines]="slot.workout ? 'none':''" [color]="slot.workout ? 'light':''">
+                    <ion-label *ngIf="slot.workout" class="ion-padding-horizontal ion-no-margin">
+                        <ion-grid class="ion-no-padding ion-no-margin">
+                            <ion-row class="ion-align-items-center ion-justify-content-between">
+                                <ion-col size="auto" class="ion-no-padding">
+                                    <ion-text class="h3 ion-no-padding" color="primary">{{slot.workout.workoutType.name}}</ion-text>
+                                </ion-col>
+                                <ion-col size="auto" class="ion-no-padding ">
+                                    <ion-text class="h5 ion-no-padding" color="danger">{{slot.workout.place}}</ion-text>
+                                </ion-col>
+                                <ion-col size="auto" class="ion-no-padding ">
+                                    <ion-text  class="h5 ion-no-padding" color="dark">{{slot.workout.users.length}}/10</ion-text>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </ion-label>
+                </ion-item>
             </ion-col>
         </ion-row>
     </ion-grid>
   `,
     styles: [`
-
+.slot{
+    --border-color: var(--ion-color-light);
+}
 .slot-time {
 	 flex: 0 0 50px;
 	 position: relative;
