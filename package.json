@@ -38,7 +38,7 @@
     "tslib": "^1.10.0",
     "@ionic-native/camera": "^5.5.0",
     "@ionic-native/file": "^5.5.0",
-    "chart.js": "2.8.0",
+    "chart.js": "2.9.4",
     "@ionic-native/speech-recognition": "5.0.0",
     "@ionic-native/health-kit": "5.14.0",
     "cheerio": "",
